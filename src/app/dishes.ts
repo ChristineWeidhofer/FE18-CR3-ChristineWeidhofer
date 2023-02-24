@@ -23,7 +23,7 @@ export const dishes = [
   {
     name: "Gnocchi",
     image: "gnocchi.jpg",
-    descr: "- our small rounds of potato dogh with cheese, spinach, eggs and our variety of sauces",
+    descr: "- our small rounds of potato dough with cheese, spinach, eggs and our variety of sauces",
     price: 13,
     avail: false
   },

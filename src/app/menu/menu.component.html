@@ -1,1 +1,22 @@
-<p>menu works!</p>
+<h1 class="text-center text-muted display-4 my-4">Menu - Order Now!</h1>
+
+<!-- create cards for showing products via loop -->
+<div class="container row row-cols-1 row-cols-lg-2 my-5 mx-auto w-75">
+  <div *ngFor="let val of dishes; index as id">
+    <div class="d-flex align-items-center">
+      <div class="flex-shrink-0">
+        <img src="../../assets/{{val.image}}" alt="{{val.name}}" width="200">
+      </div>
+      <div class="ms-3">
+        <h3 class="text-muted">{{val.name}}</h3>
+      </div>
+      <div class="ms-3 fs-4"><span>{{val.price | currency}}</span></div>
+    </div>
+    <!-- buttons for details and ordering -->
+    <div class="d-flex">
+      <button class="btn btn-outline-dark my-2 me-2">Details</button>
+      <button class="btn btn-dark text-light my-2">Order Now</button>
+    </div>
+    <hr class="w-50 mb-5">
+  </div>
+</div>
