@@ -1,1 +1,65 @@
-<p>cart works!</p>
+<h1 class="text-center text-muted display-4 mt-4">YOUR ORDER:</h1>
+
+<div class="container my-5">
+  <!-- show my cart-items (if some are there)-->
+  <p *ngIf="this.cart.length == 0" class="text-muted fs-4 py-4">Your cart is empty</p> <!-- yeah, finally got it to work, woo hoo! -->
+  <div class="cart-wrapper row">
+    <div class="cart-container col-12 col-md-8">
+      <div *ngFor="let val of cart" class="cart-area">
+        <div class="d-flex align-items-baseline">
+          <img src="assets/{{ val.image }}" alt="{{ val.name }}" class="my-1" width="100">
+          <h5 class="ms-2">{{val.name}}</h5>
+          <p class="ms-2">{{val.price | currency}}</p>
+        </div>
+        <hr class="m-0">
+      </div>
+    </div>
+    <!-- sidebar with summary: price, service charge, discount, total -->
+
+    <div *ngIf="this.cart.length != 0" class="cart-summary col-12 col-md-4">
+        <table class="table table-light">
+          <thead>
+            <tr>
+              <th scope="col" colspan="2">Summary</th>
+              <th scope="col" colspan="2">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="2">Sum:</td>
+              <td colspan="2">0</td>
+            </tr>
+            <tr>
+              <td colspan="2">Service Charge:</td>
+              <td colspan="2">0</td>
+            </tr>
+            <tr>
+              <td colspan="2">Discount:</td>
+              <td colspan="2">0</td>
+            </tr>
+            <tr>
+              <td colspan="2">Total</td>
+              <td colspan="2">0</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+  
+  <h6 class="text-muted mt-4 col-12 col-md-8">Enter your name and address, hit the "Purchase"-Button and your food will be in your hands soon! Yay!</h6>
+  
+  <!-- checkout-form -->
+  <form [formGroup]="checkoutForm" class="my-2 col-12 col-md-8" (ngSubmit)="onSubmit()">
+  
+    <div class="col-12 col-md-8 col-lg-4">
+      <label class="form-label" for="name">Name:</label><br>
+      <input class="form-control" id="name" type="text" formControlName="name">
+    </div>
+    <div class="col-12 col-md-8 col-lg-4">
+      <label class="form-label" for="address">Address:</label><br>
+      <input class="form-control" id="address" type="text" formControlName="address">
+    </div>
+  
+    <button class="btn btn-lg btn-secondary my-4" type="submit">Purchase</button>
+  </form>
+</div>

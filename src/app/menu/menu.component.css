@@ -1,0 +1,9 @@
+img {
+  cursor: pointer;
+}
+
+.polaroid {
+  border-style: solid;
+  border-width: 10px 10px 50px;
+  border-color: antiquewhite;
+}
