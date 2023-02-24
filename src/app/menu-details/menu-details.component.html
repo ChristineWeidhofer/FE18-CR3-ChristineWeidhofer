@@ -4,13 +4,12 @@
 <div class="container my-5">
   <div *ngIf="dish" class="my-5 text-center">
     <div>
-      <button class="btn btn-lg btn-secondary mb-2" (click)="addToCart()">Order Now &#8681;</button>
+      <button *ngIf="dish.avail" class="btn btn-lg btn-secondary mb-2 pointer" (click)="addToCart()">Order Now &#8681;</button>
     </div>
     <img src="assets/{{ dish.image }}" alt="{{ dish.name }}" class="mt-2 img-link">
     <h3 class="mt-4">{{ dish.name }}</h3>
     <p>{{ dish.descr }}</p>
     <p class="fs-4">Price: {{ dish.price | currency }}</p>
-    <button class="btn btn-lg btn-secondary mb-5" (click)="addToCart()">Order Now &#8681;</button>
+    <button *ngIf="dish.avail" class="btn btn-lg btn-secondary mb-5 pointer" (click)="addToCart()">Order Now &#8681;</button>
   </div>
 </div>
-

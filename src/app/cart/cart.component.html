@@ -20,28 +20,28 @@
         <table class="table table-light">
           <thead>
             <tr>
-              <th scope="col" colspan="2">Summary</th>
-              <th scope="col" colspan="2">Price</th>
+              <th scope="col" colspan="2" class="text-muted">Summary</th>
+              <th scope="col" colspan="2" class="text-muted">Price</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td colspan="2">Sum:</td>
-              <td colspan="2">0</td>
-            </tr>
-            <tr>
-              <td colspan="2">Service Charge:</td>
-              <td colspan="2">0</td>
-            </tr>
-            <tr>
-              <td colspan="2">Discount:</td>
-              <td colspan="2">0</td>
-            </tr>
-            <tr>
-              <td colspan="2">Total</td>
-              <td colspan="2">0</td>
-            </tr>
-          </tbody>
+            <tbody class="table-light">
+              <tr>
+                <td colspan="2">Sum:</td>
+                <td id="sum" colspan="2">total</td>
+              </tr>
+              <tr>
+                <td colspan="2">Service Charge:</td>
+                <td id="service" colspan="2">{{service}}</td>
+              </tr>
+              <tr>
+                <td colspan="2">Discount:</td>
+                <td *ngIf="dish.price > 40" id="discount" colspan="2">{{discount}}</td>
+              </tr>
+              <tr>
+                <td colspan="2">Total</td>
+                <td id="total" colspan="2">{{functionTotal()}}</td>
+              </tr>
+            </tbody>
         </table>
     </div>
   </div>
@@ -60,6 +60,6 @@
       <input class="form-control" id="address" type="text" formControlName="address">
     </div>
   
-    <button class="btn btn-lg btn-secondary my-4" type="submit">Purchase</button>
+    <button class="btn btn-lg btn-secondary my-4 pointer" type="submit">Purchase</button>
   </form>
 </div>

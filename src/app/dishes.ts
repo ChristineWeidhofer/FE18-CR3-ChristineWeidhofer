@@ -2,21 +2,21 @@ export const dishes = [
   {
     name: "Risotto",
     image: "risotto.jpg",
-    descr: "- our typical northern Italian dish, creamy and rich in cheese",
+    descr: "Our typical northern Italian dish, creamy and rich in cheese",
     price: 13,
     avail: true
   },
   {
     name: "Pizza",
     image: "pizza.jpg",
-    descr: "- our 'Pizza Margherita' is the most famous and simplest of pizzas - tomato sauce, mozzarella, and basil",
+    descr: "Our 'Pizza Margherita' is the most famous and simplest of pizzas - tomato sauce, mozzarella, and basil",
     price: 14,
-    avail: true
+    avail: false
   },
   {
     name: "Pasta",
     image: "pasta.jpg",
-    descr: "Our 'tagliatella al ragù', originally from Bologna, with long-cooked meat and tomato sauce",
+    descr: "Our 'Tagliatelle al Ragù', originally from Bologna, with long-cooked meat and tomato sauce",
     price: 13,
     avail: true
   },
@@ -32,7 +32,7 @@ export const dishes = [
     image: "focaccia.jpg",
     descr: "Our humble mixture of flour, water, yeast, and salt, with the final touch of olive oil",
     price: 7,
-    avail: false
+    avail: true
   },
   {
     name: "Gelato",

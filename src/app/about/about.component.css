@@ -1,0 +1,18 @@
+.hero {
+  height: 500px;
+  background-image: url("../../assets/hero.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.heading {
+  text-shadow: 0px 0px 10px rgb(40, 40, 40);
+}
+
+main {
+  margin: 4rem auto 8rem;
+}
+
+.heading2 {
+  color: #A36E62;
+}

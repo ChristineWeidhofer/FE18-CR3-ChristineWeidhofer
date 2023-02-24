@@ -1,7 +1,43 @@
-<div class="container-fluid hero d-flex flex-column justify-content-center align-items-center">
+<!-- hero section -->
+<header class="container-fluid hero d-flex flex-column justify-content-center align-items-center">
   <h1 class="heading text-center text-light display-1 fw-bold">Ristorante Il Gambero Rosso</h1>
   <div class="d-flex">
-    <button class="btn btn-secondary btn-lg text-light m-2" routerLink="/menu">Menu</button>
-    <button class="btn btn-secondary btn-lg text-light m-2" routerLink="/about">About Us</button>
+    <button class="btn btn-secondary btn-lg text-light m-2 pointer" routerLink="/menu">Menu</button>
+    <button class="btn btn-secondary btn-lg text-light m-2 pointer" routerLink="/about">About Us</button>
   </div>
-</div>
+</header>
+<!-- main section pics and text-->
+<main class="container">
+  <div class="container my-4">
+    <div class="d-flex flex-column flex-md-row align-items-center">
+      <div class="flex-shrink-0">
+        <img src="../../assets/table.jpg" width="400" alt="black chairs and booths, wooden tables inside our restaurant">
+      </div>
+      <div class="flex-grow-1 text-center text-md-start p-4">
+        Enjoy the modern atmosphere in our family-run restaurant, where culinary traditions are highly valued.
+      </div>
+    </div>
+  </div>
+  <div class="container my-4">
+    <div class="d-flex flex-column flex-md-row align-items-center">
+      <div class="flex-grow-1 text-center text-md-end p-4">
+        Our grandfather is still working in the kitchen to provide you with delicious meals.
+      </div>
+      <div class="flex-shrink-0">
+        <img src="../../assets/chef.jpg" width="400" alt="black chairs and booths, wooden tables inside our restaurant">
+      </div>
+    </div>
+  </div>
+  <div class="container my-4">
+    <div class="d-flex flex-column flex-md-row align-items-center">
+      <div class="flex-shrink-0">
+        <img src="../../assets/noodles.jpg" width="400" alt="black chairs and booths, wooden tables inside our restaurant">
+      </div>
+      <div class="flex-grow-1 text-center text-md-start p-4">
+        All our ingredients are local and organic. We make everything ourselves. No additives.
+      </div>
+    </div>
+  </div>
+  <h2 class="heading2 text-center display-5 m-5">We are looking forward to hosting you or taking your 
+    <span routerLink="/menu" class="text-muted pointer">online order!</span></h2>
+<!-- end main section pics and text-->
