@@ -1,6 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+/* global styles */
 
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 body {
   font-family: 'Montserrat', sans-serif;
@@ -16,10 +16,12 @@ body {
   background-color: #cd9c91;
 }
 
+/* make space for fixed footer*/
 .row:last-child {
   margin-bottom: 8rem;
 }
 
+/* add pointer and scale bigger (on certain links) */
 .pointer {
   display: inline-block;
   cursor: pointer;
@@ -28,4 +30,18 @@ body {
 
 .pointer:hover {
   transform: scale(1.02);
+}
+
+/* styles for home and about-page */
+
+.heading {
+  text-shadow: 0px 0px 10px rgb(40, 40, 40);
+}
+
+main {
+  margin: 4rem auto 8rem;
+}
+
+.heading2 {
+  color: #A36E62;
 }

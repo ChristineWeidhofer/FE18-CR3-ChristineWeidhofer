@@ -1,6 +1,6 @@
 <h1 class="text-center text-muted display-4 mt-4 text-uppercase">{{dish.name}}</h1>
 
-
+<!-- show the one dish that was clicked on (all info if available, only pic and desrciption if NOT available)-->
 <div class="container mt-5">
   <div *ngIf="dish" class="my-5 text-center">
     <div>
@@ -10,6 +10,7 @@
     <h3 class="mt-4">{{ dish.name }}</h3>
     <p>{{ dish.descr }}</p>
     <p *ngIf="dish.avail" class="fs-4">Price: {{ dish.price | currency }}</p>
+    <h6 *ngIf="dish.avail" class="text-muted">Service Charge of 10 % will be added at checkout</h6>
     <button *ngIf="dish.avail" class="btn btn-lg btn-secondary pointer" (click)="addToCart()">Order Now &#8681;</button>
   </div>
 </div>

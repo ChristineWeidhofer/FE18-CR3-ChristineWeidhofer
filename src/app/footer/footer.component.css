@@ -1,0 +1,8 @@
+a {
+  display: inline-block;
+  padding-left:  0.5rem;
+}
+
+i:hover {
+  color: #A36E62;
+}

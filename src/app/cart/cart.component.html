@@ -1,51 +1,56 @@
 <h1 class="text-center text-muted display-4 mt-4">YOUR ORDER:</h1>
 
 <div class="container my-5">
-  <!-- show my cart-items (if some are there)-->
-  <p *ngIf="this.cart.length == 0" class="text-muted fs-4 py-4">Your cart is empty</p> <!-- yeah, finally got it to work, woo hoo! -->
+  <!-- show my cart-items (ONLY if some are there) and info about empty cart (ONLY if it is empty)-->
+
+  <p *ngIf="this.cart.length == 0" class="text-muted fs-4 py-4">Your cart is empty</p>
   <div class="cart-wrapper row">
     <div class="cart-container col-12 col-md-8">
       <div *ngFor="let val of cart" class="cart-area">
         <div class="d-flex align-items-baseline">
-          <img src="assets/{{ val.image }}" alt="{{ val.name }}" class="my-1" width="100">
+          <img src="assets/{{ val.image }}" alt="{{ val.name }}" class="mt-3" width="100">
           <h5 class="ms-2">{{val.name}}</h5>
           <p class="ms-2">{{val.price | currency}}</p>
         </div>
         <hr class="m-0">
       </div>
     </div>
-    <!-- (DOES NOT WORK, no loop, ... I gave up with the function) sidebar with summary: price, service charge, discount, total -->
 
-  <div *ngIf="this.cart.length != 0" class="cart-summary col-12 col-md-4">
-    <table class="table table-light">
-      <thead>
-        <tr>
-          <th scope="col" colspan="2" class="text-muted">Summary</th>
-          <th scope="col" colspan="2" class="text-muted">Price</th>
-        </tr>
-      </thead>
+    <!--  right sidebar (below area on small screens) with summary: price, service charge, discount, total -->
+    
+    <div *ngIf="this.cart.length != 0" class="cart-summary col-12 col-md-4">
+      <table class="table table-light">
+        <thead>
+          <tr>
+            <th scope="col" colspan="2" class="text-muted">Summary</th>
+            <th scope="col" colspan="2" class="text-muted">Price</th>
+          </tr>
+        </thead>
         <tbody class="table-light">
           <tr>
-            <td colspan="2">Sum:</td>
-            <td id="sum" colspan="2">{{totalBefore}}</td>
+            <td colspan="2">Total before SC:</td>
+            <td id="sum" colspan="2">{{this.totalBefore | currency}}</td>
           </tr>
           <tr>
             <td colspan="2">Service Charge:</td>
-            <td id="service" colspan="2">{{service}}</td>
+            <td id="service" colspan="2">{{this.service | currency}}</td>
+          </tr>
+          <tr>
+            <td colspan="2" class="fw-bold text-secondary">Total after SC:</td>
+            <td id="service" colspan="2" class="fw-bold text-secondary">{{this.totalAfter | currency}}</td>
           </tr>
           <tr>
             <td colspan="2">Discount:</td>
-            <td id="discount" colspan="2">{{discount}}</td>
+            <td id="discount" colspan="2">{{this.discount | currency}}</td>
           </tr>
           <tr>
-            <td colspan="2">Total</td>
-            <td id="total" colspan="2">{{functionTotal()}}</td>
+            <td colspan="2" class="fw-bold text-secondary">Total</td>
+            <td id="total" colspan="2" class="fw-bold text-secondary">{{this.total | currency}}</td>
           </tr>
         </tbody>
-    </table>
-  </div>
-  </div>
-  
+      </table>
+    </div> <!-- ngIf end -->
+  </div> <!-- wrapper row end -->
 
   
   <h6 class="text-muted mt-4 col-12 col-md-8">Enter your name and address, hit the "Purchase"-Button and your food will be in your hands soon! Yay!</h6>
@@ -62,6 +67,6 @@
       <input class="form-control" id="address" type="text" formControlName="address">
     </div>
   
-    <button class="btn btn-lg btn-secondary my-4 pointer" type="submit">Purchase</button>
+    <button class="btn btn-lg btn-secondary my-5 pointer" type="submit">Purchase</button>
   </form>
 </div>

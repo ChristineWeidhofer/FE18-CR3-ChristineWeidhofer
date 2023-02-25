@@ -1,17 +1,21 @@
 <h1 class="text-center text-muted display-4 mt-4">ORDER NOW</h1>
+<h5 class="text-center text-muted">If your order exceeds $ 40.00 you get a discount of 15 %!</h5>
 
+<!-- show all the dishes in a grid -->
 <div class="container my-5">
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 mx-auto">
     <div *ngFor="let val of dishes; index as i" class="my-4">
-        <img src="../../assets/{{ val.image }}" alt="{{ val.name }}" class="pointer polaroid" width="300" routerLink="/menu/{{i}}">
+        <img src="assets/{{ val.image }}" alt="{{ val.name }}" class="pointer polaroid" width="300" routerLink="/menu/{{i}}">
         <h3 class="my-4">{{ val.name }}</h3>
         <hr class="w-25">
+        <!-- check availabilty and don't show stuff if the dish is not available -->
         <div *ngIf="val.avail; else elseBlock">
           <p class="pe-5">{{ val.descr }}</p>
           <button class="btn btn-outline-secondary me-3 pointer" routerLink="/menu/{{i}}">Details &#8680;</button>
           <button class="btn btn-secondary pointer" (click)="addToCart(val)">Order Now</button>
         </div>
         <ng-template #elseBlock>
+          <!-- show SOLD-OUT-BADGE if dish is not available -->
           <p class="rotate"><span class="text-light bg-danger z-3 translate px-2">Sold Out &#9785;</span></p>
         </ng-template>
     </div>

@@ -1,10 +1,12 @@
+/* border for each dish */
 .polaroid {
   border-style: solid;
   border-width: 10px 10px 50px;
   border-color: antiquewhite;
 }
 
-.rotate {
+/* transformations on <p> and <span> for SOLD-OUT-BADGE */
+.rotate {                     
   transform: rotate(-20deg);
   width: 150px;
   text-align: center;

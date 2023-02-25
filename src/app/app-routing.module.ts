@@ -23,7 +23,7 @@ const routes: Routes = [
     path: "cart", component: CartComponent
   },
   {
-    path: "**", redirectTo: ""
+    path: "**", redirectTo: "" // add wildcard
   }
 ];
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { CartService } from '../cart.service';
-import { dishes, IDish } from '../dishes';
+import { IDish } from '../dishes';
 
 @Component({
   selector: 'app-cart',
@@ -10,15 +10,16 @@ import { dishes, IDish } from '../dishes';
 })
 
 export class CartComponent implements OnInit {
-  dish: IDish = {} as IDish;
+  dish: IDish = {} as IDish; // add for functionTotal()
   cart: Array<IDish> = [];
 
-  totalBefore: number = this.dish.price;
-  service: number = this.totalBefore * 0.1;
-  discount: number = this.totalBefore * 0.15;
+  totalBefore: number = 0; // properties needed in functionTotal()
+  service: number = 0;
+  totalAfter: number = 0;
+  discount: number = 0;
   total: number = 0;
   
-  checkoutForm = new FormGroup({
+  checkoutForm = new FormGroup({ // checkout-form in Cart 
     name: new FormControl(''),
     address: new FormControl('')
   });
@@ -36,18 +37,23 @@ export class CartComponent implements OnInit {
     this.checkoutForm.reset();
   }
 
-  functionTotal(): number {
+  functionTotal() {               // function to calculate totals and discounts
+    for (let val of this.cart) {
+      this.totalBefore += val.price;
+      this.service = this.totalBefore * 0.1;
+      this.totalAfter = this.totalBefore + this.service;
+      
       this.total = this.totalBefore + this.service;
-      if (this.totalBefore > 40) {
+
+      if (this.total > 40) {
+        this.discount = this.total * 0.15;
         this.total = this.total - this.discount;
       }
-    return this.total;
+    }
   }
 
   ngOnInit(): void {
     this.cart = this.CS.getCart();
+    this.functionTotal();
   }
-
 }
-
-
